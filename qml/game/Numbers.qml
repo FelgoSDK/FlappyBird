@@ -36,7 +36,8 @@ Item {
     }
 
     unit = truncate(number % 10)
-    if((trailingZero && unit <= 0) || unit >= 10) {
+    // test also if there is remainder, if no remainder it might be 10 and the first number is needed, otherwise a fragment is displayed.
+    if(number % 10 && ((trailingZero && unit <= 0) || unit >= 10)) {
       position1.frameNames = []
     } else {
       position1.frameNames = [unit+"_big.png"]
