@@ -112,6 +112,14 @@
 	"spriteSourceSize": {"x":0,"y":0,"w":34,"h":24},
 	"sourceSize": {"w":34,"h":24}
 },
+"empty_big.png":
+{
+	"frame": {"x":2,"y":1010,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":24,"h":36}
+},
 "gameOver.png":
 {
 	"frame": {"x":488,"y":94,"w":192,"h":42},
@@ -255,6 +263,6 @@
 	"format": "RGBA4444",
 	"size": {"w":1024,"h":1024},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d8ad24e174b243dee79ff2f749d89f8c:1/1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:515c102bb3e3cb2121bd78b5b75c34e8:1/1$"
 }
 }
