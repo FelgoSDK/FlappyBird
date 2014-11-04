@@ -1,5 +1,5 @@
-import QtQuick 1.1
-import VPlay 1.0
+import QtQuick 2.0
+import VPlay 2.0
 import "../common"
 import "../entities"
 
@@ -10,15 +10,15 @@ SceneBase {
   signal networkPressed()
 
   Background {
-    anchors.centerIn: scene.gameWindowAnchorItem
+    anchors.horizontalCenter: scene.gameWindowAnchorItem.horizontalCenter
+    anchors.bottom: scene.gameWindowAnchorItem.bottom
   }
 
-  SingleSpriteFromFile {
+  MultiResolutionImage {
     anchors.top: parent.top
-    anchors.topMargin: 100
+    anchors.topMargin: 60
     anchors.horizontalCenter: scene.gameWindowAnchorItem.horizontalCenter
-    filename: "../img/images-sd.json"
-    source: "logo.png"
+    source: "../../assets/img/logo.png"
   }
 
   Ground {
@@ -38,8 +38,6 @@ SceneBase {
     onNetworkPressed: parent.networkPressed()
     onPlayPressed: gamePressed()
   }
-
-  VPlayNote {}
 
   onEnterPressed: {
     gamePressed()

@@ -1,28 +1,27 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 Item {
-  anchors.centerIn: parent
-  anchors.fill: parent
+  width: parent.width
+  height: parent.height
+  y: -30
   opacity: 0
+  visible: opacity === 0 ? false : true
+  enabled: visible
 
   signal clicked()
 
-  SingleSpriteFromFile {
-    translateToCenterAnchor: false
-    filename: "../img/images-sd.json"
-    source: "getReady.png"
+  MultiResolutionImage {
+    source: "../../assets/img/getReady.png"
     anchors.bottom: tutorial.top
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottomMargin: 30
   }
 
-  SingleSpriteFromFile {
+  MultiResolutionImage {
     id: tutorial
-    translateToCenterAnchor: false
     anchors.centerIn: parent
-    filename: "../img/images-sd.json"
-    source: "tutorial.png"
+    source: "../../assets/img/tutorial.png"
   }
 
   MouseArea {

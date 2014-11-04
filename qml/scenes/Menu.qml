@@ -1,11 +1,11 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 Row {
   signal playPressed()
   signal networkPressed()
 
-  spacing: 30
+  spacing: 18
   anchors.horizontalCenter: parent.horizontalCenter
   height: menuItem.height
 
@@ -14,13 +14,13 @@ Row {
     onClicked: {
       playPressed()
     }
-    source: "playAgain.png"
+    source: "../../assets/img/playAgain.png"
   }
 
   ImageButton {
     onClicked: {
       networkPressed()
     }
-    source: "scores.png"
+    source: "../../assets/img/scores.png"
   }
 }

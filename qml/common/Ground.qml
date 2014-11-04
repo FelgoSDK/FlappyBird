@@ -1,23 +1,24 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 Item {
   width: spriteSequence.width
   height: spriteSequence.height
 
-  SpriteSequenceFromFile {
+  SpriteSequenceVPlay {
     id: spriteSequence
     anchors.centerIn: parent
-    filename: "../img/images-sd.json"
 
-    Sprite {
+    SpriteVPlay {
       name: "running"
-      frameNames: [
-        "land.png",
-        "land1.png",
-      ]
-      frameCount: 2
+
+      frameCount: 3
       frameRate: 4
+
+      frameWidth: 368
+      frameHeight: 90
+      source: "../../assets/img/landSprite.png"
+
     }
   }
 

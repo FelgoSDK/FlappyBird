@@ -1,5 +1,5 @@
-import QtQuick 1.1
-import VPlay 1.0
+import QtQuick 2.0
+import VPlay 2.0
 import "../common"
 
 SceneBase {
@@ -24,8 +24,8 @@ SceneBase {
   VPlayGameNetwork {
     id: gameNetwork
     // received from the GameNetwork dashboard at http://gamenetwork.v-play.net
-    gameId: 20
-    secret: "gameNetworkSecretFlappyBird"
+    gameId: 105
+    secret: "flappyBirdDevPasswordForVPlayGameNetwork"
     gameNetworkView: gameNetworkView
 
     onNewHighscore: {
@@ -40,7 +40,6 @@ SceneBase {
     onTextInputFinished: {
       if(accepted) {
         var validUserName = gameNetwork.updateUserName(enteredText)
-        // we may show a messagebox if the user name was not valid
       }
     }
   }

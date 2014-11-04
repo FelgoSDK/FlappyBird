@@ -1,20 +1,18 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 EntityBase {
   id: pipeElement
   width: spriteUpperPipe.width
   height: spriteUpperPipe.height+pipeGateway+spriteBottomPipe.height
 
-  property int pipeGateway: 80
+  property int pipeGateway: 90
   property int variationDistance: 70
   property double delay: 0
 
-  SingleSpriteFromFile {
+  MultiResolutionImage {
     id: spriteUpperPipe
-    translateToCenterAnchor: false
-    filename: "../img/images-sd.json"
-    source: "pipe_green.png"
+    source: "../../assets/img/pipe_green.png"
     mirrorY: true
   }
 
@@ -44,12 +42,10 @@ EntityBase {
     }
   }
 
-  SingleSpriteFromFile {
+  MultiResolutionImage {
     id: spriteBottomPipe
     y: height+pipeGateway
-    translateToCenterAnchor: false
-    filename: "../img/images-sd.json"
-    source: "pipe_green.png"
+    source: "../../assets/img/pipe_green.png"
   }
 
   BoxCollider {
@@ -76,20 +72,13 @@ EntityBase {
     }
   }
 
-  Utils {
-    id: utils
+  function generateRandomValueBetween(minimum, maximum) {
+    return Math.random()*(maximum-minimum) + minimum
   }
 
   function reset() {
-    var animationIsRunning = animation.running
-    if(animationIsRunning)
-      stop()
-
     pipeElement.x = scene.gameWindowAnchorItem.width+pipeElement.width/2
-    pipeElement.y = utils.generateRandomValueBetween(-variationDistance, variationDistance)-scene.height/3
-
-    if(animationIsRunning)
-      animation.start()
+    pipeElement.y = generateRandomValueBetween(-variationDistance, variationDistance)-scene.height/3
   }
 
   function start() {

@@ -1,5 +1,5 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 Item {
   id: button
@@ -13,10 +13,8 @@ Item {
 
   property alias source: sprite.source
 
-  SingleSpriteFromFile {
+  MultiResolutionImage {
     id: sprite
-    translateToCenterAnchor: false
-    filename: "../img/images-sd.json"
   }
 
   MouseArea {

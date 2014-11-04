@@ -1,5 +1,5 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 import "../entities"
 import "../common"
 
@@ -7,6 +7,8 @@ Item {
   id: level
 
   Background {
+    anchors.horizontalCenter: parent.horizontalCenter
+    y: scene.gameWindowAnchorItem.y+scene.gameWindowAnchorItem.height-height
   }
 
   BorderElement {
@@ -21,20 +23,6 @@ Item {
     x: scene.gameWindowAnchorItem.x
     width: scene.gameWindowAnchorItem.width
     height: 20
-  }
-
-  BorderElement {
-    x: scene.gameWindowAnchorItem.x-20
-    y: scene.gameWindowAnchorItem.y
-    width: 20
-    height: scene.gameWindowAnchorItem.height
-  }
-
-  BorderElement {
-    x: scene.gameWindowAnchorItem.x+scene.gameWindowAnchorItem.width
-    y: scene.gameWindowAnchorItem.y
-    width: 20
-    height: scene.gameWindowAnchorItem.height
   }
 
   Pipes {

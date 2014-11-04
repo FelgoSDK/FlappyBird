@@ -2,7 +2,7 @@
 
 Description
 -----------
-This is the source code of Flappy Bird version created with V-Play Game Engine. The game runs with V-Play on iOS, Android, BlackBerry, Symbian and on all desktop platforms.
+This is the source code of Flappy Bird version created with V-Play Game Engine. The game runs with V-Play on iOS, Android and on all desktop platforms.
 
 ![ScreenShot](http://v-play.net/wp-content/uploads/2014/02/flappy-bird-blog-post.png)
 

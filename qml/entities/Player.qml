@@ -1,5 +1,5 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 EntityBase {
   id: player
@@ -17,20 +17,21 @@ EntityBase {
     spriteSequence.running = false
   }
 
-  SpriteSequenceFromFile {
+  SpriteSequenceVPlay {
     id: spriteSequence
-    filename: "../img/images-sd.json"
 
-    Sprite {
+    anchors.centerIn: parent
+
+    SpriteVPlay {
       name: "idle"
-      frameNames: [
-        "bird_0.png",
-        "bird_1.png",
-        "bird_2.png",
-      ]
       frameCount: 3
       frameRate: 10
+
+      frameWidth: 34
+      frameHeight: 24
+      source: "../../assets/img/birdSprite.png"
     }
+    rotation: wabbleX.running ? 0 : collider.linearVelocity.y/10
   }
 
   CircleCollider {

@@ -1,72 +1,65 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 import "../scenes"
 import "../common"
 
 Item {
-  anchors.centerIn: parent
-  anchors.fill: parent
+  width: parent.width
+  height: parent.height
+  y: -30
   opacity: 0
+  visible: opacity === 0 ? false : true
+  enabled: visible
 
   signal playPressed()
   signal networkPressed()
+  signal useCoinsPressed()
 
-  SingleSpriteFromFile {
-    translateToCenterAnchor: false
-    filename: "../img/images-sd.json"
-    source: "gameOver.png"
+  MultiResolutionImage {
+    source: "../../assets/img/gameOver.png"
     anchors.bottom: scoreBoard.top
     anchors.horizontalCenter: parent.horizontalCenter
     anchors.bottomMargin: 30
   }
 
-  SingleSpriteFromFile {
+  MultiResolutionImage {
     id: scoreBoard
-    translateToCenterAnchor: false
     anchors.centerIn: parent
-    filename: "../img/images-sd.json"
-    source: "scoreBoard.png"
-  }
-
-  SingleSpriteFromFile {
-    id: medal
-    translateToCenterAnchor: false
-    filename: "../img/images-sd.json"
-    source: (highscore >= 5 && highscore <10) ? "medalBronze.png" :
-            (highscore >= 10 && highscore <15) ? "medalSilver.png" :
-            (highscore >= 15 && highscore <20) ? "medalGold.png" :
-            (highscore >= 20) ? "medalPlatin.png" : ""
-    anchors.left: scoreBoard.left
-    anchors.leftMargin: 26
-    anchors.top: scoreBoard.top
-    anchors.topMargin: 42
+    source: "../../assets/img/scoreBoard.png"
   }
 
   Numbers {
     anchors.right: scoreBoard.right
-    anchors.rightMargin: 15
+    anchors.rightMargin: -10
     anchors.top: scoreBoard.top
-    anchors.topMargin: 45
+    anchors.topMargin: 35
     scale: 0.5
     number: gameScene.score
   }
 
   Numbers {
     anchors.right: scoreBoard.right
-    anchors.rightMargin: 15
+    anchors.rightMargin: -10
     anchors.top: scoreBoard.top
-    anchors.topMargin: 85
+    anchors.topMargin: 75
     scale: 0.5
     number: highscore
   }
 
+  Numbers {
+    color: "_gold"
+    anchors.left: scoreBoard.left
+    anchors.leftMargin: 30
+    anchors.top: scoreBoard.top
+    anchors.topMargin: 50
+    number: coins
+  }
+
   Menu {
     anchors.top: scoreBoard.bottom
-    anchors.topMargin: 35
+    anchors.topMargin: 15
     onPlayPressed: parent.playPressed()
     onNetworkPressed: parent.networkPressed()
   }
-
-  VPlayNote {}
 
 }

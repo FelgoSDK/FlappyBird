@@ -1,10 +1,10 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 
 Item {
   id: audioManager
 
-  // Use Sound IDs to play Sounds e.g. audioManager.play(audioManager.idBUTTON)
+  // Use Sound IDs to play Sounds e.g. audioManager.play(audioManager.idDIE)
   property int idDIE: 11
   property int idHIT: 22
   property int idPOINT: 33
@@ -16,27 +16,41 @@ Item {
 
     switch(clipID) {
     case idDIE:
-      clip.source = "../audio/sfx_die.wav"
+      die.play()
       break
     case idHIT:
-      clip.source = "../audio/sfx_hit.wav"
+      hit.play()
       break
     case idPOINT:
-      clip.source = "../audio/sfx_point.wav"
+      point.play()
       break
     case idSWOOSHING:
-      clip.source = "../audio/sfx_swooshing.wav"
+      swoosh.play()
       break
     case idWING:
-      clip.source = "../audio/sfx_wing.wav"
+      wing.play()
       break
     }
-
-    clip.play()
   }
 
-  Sound {
-    id: clip
-    volume: 1
+  SoundEffectVPlay {
+    id: die
+    source: "../../assets/audio/sfx_die.wav"
+  }
+  SoundEffectVPlay {
+    id: hit
+    source: "../../assets/audio/sfx_hit.wav"
+  }
+  SoundEffectVPlay {
+    id: point
+    source: "../../assets/audio/sfx_point.wav"
+  }
+  SoundEffectVPlay {
+    id: swoosh
+    source: "../../assets/audio/sfx_swooshing.wav"
+  }
+  SoundEffectVPlay {
+    id: wing
+    source: "../../assets/audio/sfx_wing.wav"
   }
 }

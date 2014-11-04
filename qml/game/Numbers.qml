@@ -1,12 +1,15 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 import "../entities"
 
 Item {
   id: numbers
   width: row.width
   height: row.heigth
+  property string color
   property int number: 0
+
+  property string imagePath: "../../assets/img/"
 
   function truncate(_value)
   {
@@ -15,75 +18,66 @@ Item {
   }
 
   onNumberChanged: {
+    if(number > 9999) number = 9999
     var trailingZero = true
-    var unit = truncate((number / 100) % 10)
+
+    var unit = truncate((number / 1000) % 10)
     if((trailingZero && unit <= 0) || unit >= 10) {
-      position100.frameNames = ["empty_big.png"]
+      position1000.source = imagePath + "empty_big.png"
     } else {
       trailingZero = false
-      position100.frameNames = [unit+"_big.png"]
+      position1000.source = imagePath + unit+"_big"+color+".png"
+    }
+
+    unit = truncate((number / 100) % 10)
+    if((trailingZero && unit <= 0) || unit >= 10) {
+      position100.source = imagePath + "empty_big.png"
+    } else {
+      trailingZero = false
+      position100.source = imagePath + unit+"_big"+color+".png"
     }
 
     unit = truncate((number / 10) % 10)
     if((trailingZero && unit <= 0) || unit >= 10) {
-      position10.frameNames = ["empty_big.png"]
+      position10.source = imagePath + "empty_big.png"
     } else {
-      position10.frameNames = [unit+"_big.png"]
+      position10.source = imagePath + unit+"_big"+color+".png"
     }
 
     unit = truncate(number % 10)
     // test also if there is remainder, if no remainder it might be 10 and the first number is needed, otherwise a fragment is displayed.
     if(number % 10 && ((trailingZero && unit <= 0) || unit >= 10)) {
-      position1.frameNames = ["empty_big.png"]
+      position1.source = imagePath + "empty_big.png"
     } else {
-      position1.frameNames = [unit+"_big.png"]
+      position1.source = imagePath + unit+"_big"+color+".png"
     }
 
     if(number <= 0) {
-      position1.frameNames = ["0_big.png"]
+      position1.source = imagePath + "0_big"+color+".png"
     }
   }
 
   Row {
     id: row
     height: position1.height
+    x: number >= 1000 ? -12 : number >= 100 ? -24 : number >= 10 ? -36 : -48
 
-    SpriteSequenceFromFile {
-      running: false
-
-      filename: "../img/images-sd.json"
-
-      Sprite {
-        id: position100
-        frameNames: [
-          "empty_big.png"
-        ]
-      }
+    MultiResolutionImage {
+      id: position1000
+      source: imagePath + "empty_big.png"
     }
-    SpriteSequenceFromFile {
-      running: false
-
-      filename: "../img/images-sd.json"
-
-      Sprite {
-        id: position10
-        frameNames: [
-          "empty_big.png"
-        ]
-      }
+    MultiResolutionImage {
+      id: position100
+      source: imagePath + "empty_big.png"
+    }
+    MultiResolutionImage {
+      id: position10
+      source: imagePath + "empty_big.png"
     }
 
-    SpriteSequenceFromFile {
-      running: false
-
-      filename: "../img/images-sd.json"
-
-      Sprite {
-        id: position1
-        frameNames: [
-          "0_big.png"
-        ]
-      }
+    MultiResolutionImage {
+      id: position1
+      source: imagePath + "0_big"+color+".png"
     }
   }
 }

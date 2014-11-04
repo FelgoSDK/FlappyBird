@@ -1,5 +1,5 @@
-import VPlay 1.0
-import QtQuick 1.1
+import VPlay 2.0
+import QtQuick 2.0
 import "../game"
 import "../common"
 import "../entities"
@@ -16,6 +16,7 @@ SceneBase {
 
   signal menuPressed()
   signal networkPressed()
+  signal useCoinsPressed()
 
 
   PhysicsWorld {
@@ -29,10 +30,11 @@ SceneBase {
     updatesPerSecondForPhysics: 60
 
     // this should be increased so it looks good, by default it is set to 1 to save performance
-    // when it is left at 1, the ball sometimes "float" into the wall or paddles
     velocityIterations: 5
     positionIterations: 5
-    debugDrawVisible: true
+
+    // by default debugDraw is visible in debug builds
+    debugDrawVisible: false
   }
 
   Level {
@@ -47,36 +49,41 @@ SceneBase {
     onGameOver: {
       if(scene.state === "gameOver")
         return
-
+      coins+=score
       scene.state = "gameOver"
       audioManager.play(audioManager.idDIE)
       audioManager.play(audioManager.idHIT)
     }
   }
 
+  // displaying the score
   Numbers {
     anchors.horizontalCenter: parent.horizontalCenter
-    y: 40
+    y: 30
     number: score
   }
 
+  // it's important to fill the gameWindowAnchorItem, so the whole screen is touch-able on any device with any aspect ratio
   MouseArea {
     id: mouseControl
-    anchors.fill: parent
-    onClicked: {
+    anchors.fill: scene.gameWindowAnchorItem
+    onPressed: {
       if(gameIsRunning) {
         player.push()
       }
     }
   }
 
+  // overlay on game over
   GameOverScreen {
     id: gameOverStats
 
     onPlayPressed: scene.state = "wait"
     onNetworkPressed: parent.networkPressed()
+    onUseCoinsPressed: parent.useCoinsPressed()
   }
 
+  // get-ready screen
   WaitScreen {
     id: waitToPlay
     onClicked: {
@@ -85,7 +92,8 @@ SceneBase {
     }
   }
 
-  onBackPressed: {
+  onBackButtonPressed: {
+    if(scene.state == "gameOver") mainItem.state = "menu"
     scene.state = "gameOver"
   }
 
