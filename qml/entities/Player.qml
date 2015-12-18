@@ -5,9 +5,12 @@ EntityBase {
   id: player
   entityType: "player"
 
-  property int upwardforce: -280
+  property real upwardforce: -280
   property int resetX: 0
   property int resetY: 0
+
+  width: collider.radius * 2
+  height: collider.radius * 2
 
   signal gameOver()
 
@@ -56,7 +59,7 @@ EntityBase {
     wabbleY.stop()
     audioManager.play(audioManager.idWING)
     collider.body.linearVelocity = Qt.point(0,0)
-    var localForwardVector = collider.body.toWorldVector(Qt.point(0,upwardforce));
+    var localForwardVector = collider.body.toWorldVector(Qt.point(0, upwardforce));
     collider.body.applyLinearImpulse(localForwardVector, collider.body.getWorldCenter());
   }
 

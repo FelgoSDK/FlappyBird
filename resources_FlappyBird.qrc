@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/">
         <file>qml</file>
-        <file>qml/audio</file>
+		<file>qml/audio</file>
         <file>qml/common</file>
         <file>qml/entities</file>
         <file>qml/game</file>

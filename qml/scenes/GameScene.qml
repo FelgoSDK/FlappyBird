@@ -10,7 +10,7 @@ SceneBase {
   property int score: 0
 
   property bool gameIsRunning: false
-  property double gravityValue: 9.81*3
+  property double gravityValue: 9.81 * 3
 
   property alias entityContainer: level
 
@@ -18,11 +18,8 @@ SceneBase {
   signal networkPressed()
   signal useCoinsPressed()
 
-
   PhysicsWorld {
     id: physicsWorld
-    // this puts it on top of all other items for the physics debug renderer
-    z: 1
 
     gravity.y: gravityValue
 
