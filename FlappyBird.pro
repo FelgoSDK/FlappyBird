@@ -25,29 +25,12 @@ RESOURCES += \
 # The .cpp file which was generated for your project. Feel free to hack it.
 SOURCES += main.cpp
 
-ios: load(v-play) # temp fix to show QML files for iOS device and iOS simulator
-
 android {
     ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
     OTHER_FILES += android/AndroidManifest.xml
 }
 
 ios {
-    ICON_DATA.files = \
-        ios/Icon.png \
-        ios/Icon@2x.png \
-        ios/Icon-60.png \
-        ios/Icon-60@2x.png \
-        ios/Icon-72.png \
-        ios/Icon-72@2x.png \
-        ios/Icon-76.png \
-        ios/Icon-76@2x.png \
-        ios/Def.png \
-        ios/Def@2x.png \
-        ios/Def-Portrait.png \
-        ios/Def-568h@2x.png
-    QMAKE_BUNDLE_DATA += ICON_DATA
-
     QMAKE_INFO_PLIST = ios/Project-Info.plist
     OTHER_FILES += $$QMAKE_INFO_PLIST
 }
