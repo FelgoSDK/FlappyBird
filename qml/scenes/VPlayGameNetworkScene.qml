@@ -17,7 +17,7 @@ SceneBase {
     showAchievementsHeaderIcon: false
 
     onBackClicked: {
-      scene.backPressed()
+      scene.backButtonPressed()
     }
   }
 

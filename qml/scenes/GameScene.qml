@@ -10,7 +10,7 @@ SceneBase {
   property int score: 0
 
   property bool gameIsRunning: false
-  property double gravityValue: -9.81*3
+  property double gravityValue: 9.81*3
 
   property alias entityContainer: level
 

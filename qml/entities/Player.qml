@@ -56,7 +56,7 @@ EntityBase {
     wabbleY.stop()
     audioManager.play(audioManager.idWING)
     collider.body.linearVelocity = Qt.point(0,0)
-    var localForwardVector = collider.body.getWorldVector(Qt.point(0,upwardforce));
+    var localForwardVector = collider.body.toWorldVector(Qt.point(0,upwardforce));
     collider.body.applyLinearImpulse(localForwardVector, collider.body.getWorldCenter());
   }
 
