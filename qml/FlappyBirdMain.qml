@@ -5,16 +5,15 @@ import "common"
 
 GameWindow {
   id: window
-  width: 640
-  height: 960
+  screenWidth: 640
+  screenHeight: 960
 
-  // you get free licenseKeys as a V-Play customer or in your V-Play Trial
-  // with a licenseKey, you get the best development experience:
-  //  * No watermark shown
-  //  * No license reminder every couple of minutes
-  //  * No fading V-Play logo
-  // you can generate one from http://v-play.net/license/trial, then enter it below:
-  //licenseKey: "<generate one from http://v-play.net/license/trial>"
+  // You get free licenseKeys from http://v-play.net/licenseKey
+  // With a licenseKey you can:
+  //  * Publish your games & apps for the app stores
+  //  * Remove the V-Play Splash Screen or set a custom one (available with the Pro Licenses)
+  //  * Add plugins to monetize, analyze & improve your apps (available with the Pro Licenses)
+  //licenseKey: "<generate one from http://v-play.net/licenseKey>"
 
   property alias window: window
   activeScene: splash
