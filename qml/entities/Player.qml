@@ -41,8 +41,6 @@ EntityBase {
     id: collider
 
     radius: spriteSequence.height/2
-    anchors.centerIn: parent
-
     bodyType: Body.Dynamic
   }
 
