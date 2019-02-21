@@ -68,10 +68,3 @@ Dong Nguyen or subsidiaries.
 
 If you have any questions about those Agreements, please write to support@felgo.com
 or visit https://felgo.com/.
-
-Screenshots  
------------
-![ScreenShot](https://felgo.com/games/flappybird/flappy-main.png)
-![ScreenShot](https://felgo.com/games/flappybird/flappy-ready.png)
-![ScreenShot](https://felgo.com/games/flappybird/flappy-game.png)
-![ScreenShot](https://felgo.com/games/flappybird/flappy-gameover.png)
