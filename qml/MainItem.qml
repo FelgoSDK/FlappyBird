@@ -1,4 +1,4 @@
-import VPlay 2.0
+import Felgo 3.0
 import QtQuick 2.0
 import "scenes"
 import "common"
@@ -57,7 +57,7 @@ Item {
     }
   }
 
-  VPlayGameNetworkScene {
+  FelgoGameNetworkScene {
     id: vplayGameNetworkScene
     onBackButtonPressed: {
       // go back to the state from where it was called

@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import VPlay 2.0
+import Felgo 3.0
 import "../common"
 
 SceneBase {
@@ -9,7 +9,7 @@ SceneBase {
 
   property alias initialStateBeforeShow: gameNetworkView.initialStateBeforeShow
 
-  VPlayGameNetworkView {
+  GameNetworkView {
     id: gameNetworkView
     anchors.fill: scene.gameWindowAnchorItem
 
@@ -21,9 +21,9 @@ SceneBase {
     }
   }
 
-  VPlayGameNetwork {
+  FelgoGameNetwork {
     id: gameNetwork
-    // received from the GameNetwork dashboard at http://gamenetwork.v-play.net
+    // received from the GameNetwork dashboard at https://cloud.felgo.com
     gameId: 105
     secret: "flappyBirdDevPasswordForVPlayGameNetwork"
     gameNetworkView: gameNetworkView

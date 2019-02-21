@@ -1,4 +1,4 @@
-import VPlay 2.0
+import Felgo 3.0
 import QtQuick 2.0
 
 Item {
@@ -33,23 +33,23 @@ Item {
     }
   }
 
-  SoundEffectVPlay {
+  SoundEffect {
     id: die
     source: "../../assets/audio/sfx_die.wav"
   }
-  SoundEffectVPlay {
+  SoundEffect {
     id: hit
     source: "../../assets/audio/sfx_hit.wav"
   }
-  SoundEffectVPlay {
+  SoundEffect {
     id: point
     source: "../../assets/audio/sfx_point.wav"
   }
-  SoundEffectVPlay {
+  SoundEffect {
     id: swoosh
     source: "../../assets/audio/sfx_swooshing.wav"
   }
-  SoundEffectVPlay {
+  SoundEffect {
     id: wing
     source: "../../assets/audio/sfx_wing.wav"
   }

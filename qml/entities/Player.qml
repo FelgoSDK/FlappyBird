@@ -1,5 +1,6 @@
-import VPlay 2.0
 import QtQuick 2.0
+import Felgo 3.0
+
 
 EntityBase {
   id: player
@@ -20,12 +21,12 @@ EntityBase {
     spriteSequence.running = false
   }
 
-  SpriteSequenceVPlay {
+  SpriteSequence {
     id: spriteSequence
 
     anchors.centerIn: parent
 
-    SpriteVPlay {
+    Sprite {
       name: "idle"
       frameCount: 3
       frameRate: 10

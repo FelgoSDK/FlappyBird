@@ -107,7 +107,13 @@
         <key>UILaunchImageSize</key>
         <string>{768, 1024}</string>
     </dict>
-	</array>
+    </array>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>App would like to access the library.</string>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>App would like to save images taken with camera.</string>
+    <key>NSCameraUsageDescription</key>
+    <string>App would like to access the camera.</string>
 </dict>
 </plist>
 

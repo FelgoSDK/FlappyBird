@@ -1,4 +1,4 @@
-import VPlay 2.0
+import Felgo 3.0
 import QtQuick 2.0
 import "../game"
 import "../common"
@@ -120,7 +120,7 @@ SceneBase {
     stopGame()
     // do not submit a score of 0
     if(score > 0) {
-      // submit the new score; if there is a new highscore, a signal onNewHighscore() is emitted by VPlayGameNetwork
+      // submit the new score; if there is a new highscore, a signal onNewHighscore() is emitted by FelgoGameNetwork
       gameNetwork.reportScore(score)
     }
   }

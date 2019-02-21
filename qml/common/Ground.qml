@@ -1,15 +1,15 @@
-import VPlay 2.0
+import Felgo 3.0
 import QtQuick 2.0
 
 Item {
   width: spriteSequence.width
   height: spriteSequence.height
 
-  SpriteSequenceVPlay {
+  SpriteSequence {
     id: spriteSequence
     anchors.centerIn: parent
 
-    SpriteVPlay {
+    Sprite {
       name: "running"
 
       frameCount: 3
